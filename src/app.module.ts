@@ -5,6 +5,8 @@ import { CatModule } from './cat/cat.module';
 import { LoggerMiddleware } from './middleware/logger.middleware';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import {Cat} from './cat/entity/cat.entity'
+import { AuthModule } from './auth/auth.module';
+import { User } from './auth/entity/user.entity';
 
 @Module({
   imports: [ TypeOrmModule.forRoot({
@@ -14,10 +16,11 @@ import {Cat} from './cat/entity/cat.entity'
     username: 'root',
     password: 'root',
     database: 'test',
-    entities: [Cat],
+    entities: [Cat, User],
     synchronize: true, // 운영모드일때는 사용하지 않는다.
   }),
-    CatModule],
+    CatModule,
+    AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })
