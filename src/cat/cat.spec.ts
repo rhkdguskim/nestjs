@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { Cat } from './interface/cat.interface';
+import { Cat } from './entity/cat.entity';
 
 describe('Cat', () => {
   let provider: Cat;
